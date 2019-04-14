@@ -1,0 +1,5 @@
+com/infoshare/academy/model/UserStore.class
+com/infoshare/academy/model/Credentials.class
+com/infoshare/academy/service/UserService.class
+com/infoshare/academy/App.class
+com/infoshare/academy/model/User.class

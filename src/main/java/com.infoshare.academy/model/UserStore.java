@@ -2,8 +2,9 @@ package com.infoshare.academy.model;
 
 
 
-import com.sun.org.slf4j.internal.Logger;
-import com.sun.org.slf4j.internal.LoggerFactory;
+
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import javax.ejb.Singleton;
 import java.util.HashMap;
@@ -13,7 +14,7 @@ import java.util.Optional;
 @Singleton
 public class UserStore {
 
-    private  Logger LOG = LoggerFactory.getLogger(UserStore.class);
+   private Logger LOG = LoggerFactory.getLogger(UserStore.class);
 
     private Map<Integer, User> base;
 
@@ -22,7 +23,7 @@ public class UserStore {
     }
 
     public UserStore() {
-//        LOG.info("initializing user store");
+        LOG.info("initializing user store");
         base = new HashMap<Integer, User>();
 
         User user1 = new User("Adam", "Iksinski", 1,
@@ -42,7 +43,7 @@ public class UserStore {
     }
 
     public void add(User user) {
-  //      LOG.info("Adding to store: " + user.toString());
+        LOG.info("Adding to store: " + user.toString());
         base.put(user.getId(), user);
     }
 
