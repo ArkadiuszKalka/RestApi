@@ -19,4 +19,9 @@ public interface UserService {
     @Produces(MediaType.APPLICATION_JSON)
     public List<User> addUser(User user);
 
+    @DELETE
+    @Path("/user")
+    @Produces(MediaType.APPLICATION_JSON)
+    public List<User> deleteUser(@QueryParam("id") Integer id);
+
 }

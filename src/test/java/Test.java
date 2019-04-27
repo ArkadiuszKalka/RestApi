@@ -36,4 +36,17 @@ public class Test {
 
     }
 
+    @org.junit.Test
+    public void deleterUsersByProxy(){
+
+        ResteasyClient client = new ResteasyClientBuilder().build();
+        ResteasyWebTarget target = client.target(UriBuilder.fromPath(SERVICE));
+
+        UserService proxy = target.proxy(UserService.class);
+
+        proxy.deleteUser(6);
+
+    }
+
+
 }
