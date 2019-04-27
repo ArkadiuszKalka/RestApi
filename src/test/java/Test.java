@@ -1,3 +1,4 @@
+import com.infoshare.academy.model.User;
 import org.jboss.resteasy.client.jaxrs.ResteasyClient;
 import org.jboss.resteasy.client.jaxrs.ResteasyClientBuilder;
 import org.jboss.resteasy.client.jaxrs.ResteasyWebTarget;
@@ -20,6 +21,18 @@ public class Test {
         proxy.getUsers().forEach(
                 user -> System.out.println(user.getName())
         );
+
+    }
+
+    @org.junit.Test
+    public void testAddUsersByProxy(){
+
+        ResteasyClient client = new ResteasyClientBuilder().build();
+        ResteasyWebTarget target = client.target(UriBuilder.fromPath(SERVICE));
+
+        UserService proxy = target.proxy(UserService.class);
+
+        proxy.addUser(new User());
 
     }
 
