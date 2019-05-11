@@ -11,7 +11,7 @@ public class Test {
 
 
     @org.junit.Test
-    public void testGetUsersByProxy(){
+    public void testGetUsersByProxy() {
 
         ResteasyClient client = new ResteasyClientBuilder().build();
         ResteasyWebTarget target = client.target(UriBuilder.fromPath(SERVICE));
@@ -25,7 +25,7 @@ public class Test {
     }
 
     @org.junit.Test
-    public void testAddUsersByProxy(){
+    public void testAddUsersByProxy() {
 
         ResteasyClient client = new ResteasyClientBuilder().build();
         ResteasyWebTarget target = client.target(UriBuilder.fromPath(SERVICE));
@@ -37,7 +37,7 @@ public class Test {
     }
 
     @org.junit.Test
-    public void deleterUsersByProxy(){
+    public void deleterUsersByProxy() {
 
         ResteasyClient client = new ResteasyClientBuilder().build();
         ResteasyWebTarget target = client.target(UriBuilder.fromPath(SERVICE));
@@ -46,6 +46,23 @@ public class Test {
 
         proxy.deleteUser(6);
 
+    }
+
+    @org.junit.Test
+    public static void main(String[] args) {
+        System.out.println("MT start");
+        Thread thread = new Thread(() -> {
+            System.out.println("T0 start");
+            for (int i = 0; i < 5; i++) {
+                System.out.println("T0 " + i);
+            }
+            System.out.println("T0 stop");
+        });
+        thread.start();
+        for (int i = 0; i < 5; i++) {
+            System.out.println("MT " + i);
+        }
+        System.out.println("MT stop");
     }
 
 
